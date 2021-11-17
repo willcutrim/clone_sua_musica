@@ -1,5 +1,6 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:scroll_snap_list/scroll_snap_list.dart';
+
 import 'package:progresso/progresso.dart';
 
 class MyApp extends StatelessWidget {
@@ -56,22 +57,15 @@ class _PlayPageState extends State<PlayPage> {
                 height: 45,
               ),
               Expanded(
-                child: ScrollSnapList(
-                  itemCount: 5,
-                  itemSize: 296,
-                  dynamicItemSize: true,
-                  margin: EdgeInsets.fromLTRB(15, 0, 15, 0),
-                  selectedItemAnchor: SelectedItemAnchor.MIDDLE,
-                  scrollDirection: Axis.horizontal,
-                  onReachEnd: () {
-                    print('cabô');
-                  },
-                  itemBuilder: (BuildContext, int) {
-                    return ImagemLista();
-                  },
-                  onItemFocus: (int) {},
-                ),
-              ),
+                  child: CarouselSlider.builder(
+                      itemCount: 5,
+                      itemBuilder: (BuildContext context, int itemIndex,
+                              int pageViewIndex) =>
+                          ImagemLista(),
+                      options: CarouselOptions(
+                          height: 350,
+                          enlargeCenterPage: true,
+                          enableInfiniteScroll: false))),
               SizedBox(
                 height: 15,
               ),
