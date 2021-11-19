@@ -1,5 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:marquee/marquee.dart';
 
 import 'package:progresso/progresso.dart';
 
@@ -31,7 +33,7 @@ class _PlayPageState extends State<PlayPage> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        toolbarHeight: 80.0,
+        toolbarHeight: 75.0,
         backgroundColor: Colors.white,
         leading: IconButton(
           onPressed: () {},
@@ -54,7 +56,10 @@ class _PlayPageState extends State<PlayPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
-                height: 45,
+                height: 30,
+              ),
+              SizedBox(
+                height: 12,
               ),
               Expanded(
                   child: CarouselSlider.builder(
@@ -67,28 +72,41 @@ class _PlayPageState extends State<PlayPage> {
                           enlargeCenterPage: true,
                           enableInfiniteScroll: false))),
               SizedBox(
-                height: 15,
+                height: 25,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.favorite_border),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Text(
-                    'PEDAÇO DE PECADO - João Gomes',
-                    style: TextStyle(
-                      color: Colors.red[700],
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
+              Container(
+                padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.favorite_border),
+                    SizedBox(
+                      width: 8,
                     ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Icon(Icons.more_vert_outlined)
-                ],
+                    Container(
+                      width: 250,
+                      height: 20,
+                      child: Marquee(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        blankSpace: 20.0,
+                        startPadding: 10.0,
+                        pauseAfterRound: Duration(seconds: 1),
+                        decelerationDuration: Duration(milliseconds: 2000),
+                        accelerationDuration: Duration(seconds: 1),
+                        text: 'PEDAÇO DE PECADO - João Gomes\t',
+                        style: TextStyle(
+                          color: Colors.red[700],
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 8,
+                    ),
+                    Icon(Icons.more_vert_outlined)
+                  ],
+                ),
               ),
               SizedBox(
                 height: 6,
