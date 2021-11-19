@@ -56,10 +56,7 @@ class _PlayPageState extends State<PlayPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
-                height: 30,
-              ),
-              SizedBox(
-                height: 12,
+                height: 20,
               ),
               Expanded(
                   child: CarouselSlider.builder(
@@ -167,7 +164,7 @@ class _PlayPageState extends State<PlayPage> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(15.0, 20, 15, 6),
+                padding: const EdgeInsets.fromLTRB(15.0, 10, 15, 6),
                 child: Container(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -176,7 +173,7 @@ class _PlayPageState extends State<PlayPage> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(20.0, 0, 20, 25),
+                padding: const EdgeInsets.fromLTRB(20.0, 0, 20, 15),
                 child: Progresso(
                   //progress: 0.5,
                   progressColor: Colors.red,
@@ -196,7 +193,7 @@ class _PlayPageState extends State<PlayPage> {
                           size: 20,
                         )),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(0, 0, 0, 50),
+                      padding: EdgeInsets.fromLTRB(0, 0, 0, 28),
                       child: Row(
                         children: [
                           IconButton(
@@ -207,7 +204,7 @@ class _PlayPageState extends State<PlayPage> {
                             ),
                           ),
                           SizedBox(
-                            width: 16,
+                            width: 18,
                           ),
                           IconButton(
                             onPressed: () {},
@@ -227,7 +224,7 @@ class _PlayPageState extends State<PlayPage> {
                         ],
                       ),
                     ),
-                    SizedBox(width: 20),
+                    SizedBox(width: 16),
                     IconButton(
                       onPressed: () {},
                       icon: Icon(
@@ -238,6 +235,13 @@ class _PlayPageState extends State<PlayPage> {
                   ],
                 ),
               ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  IconButton(onPressed: () {}, icon: Icon(Icons.cast)),
+                  Text('Conectar dispositivo')
+                ],
+              )
             ],
           )),
     );
